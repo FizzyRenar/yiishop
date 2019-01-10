@@ -2,6 +2,7 @@
 namespace app\controllers;
 
 use Yii;
+use app\models\TestForm;
 
 class PostController extends AppController{
 
@@ -9,20 +10,26 @@ class PostController extends AppController{
 
     public function beforeAction($action)
     {
-       // $this->debug($action);
-//        return parent::beforeAction($action);
+        if($action->id == 'index'){
+            $this->enableCsrfValidation = false;
+        }
+        return parent::beforeAction($action);
     }
 
     public function actionIndex(){
         if( Yii::$app->request->isAjax ){
-            debug(Yii::$app->request->post());
-            return 'test';
+
+            return var_dump(Yii::$app->request->post());
         }
-        return $this->render('test');
+
+        $model = new TestForm();
+        return $this->render('test', compact('model'));
     }
 
     public function actionShow(){
-//        $this->layout = 'basic';
+        $this->view->title = 'Одна статья!';
+        $this->view->registerMetaTag(['name' => 'keywords', 'content' => 'ключевые слова']);
+        $this->view->registerMetaTag(['name' => 'description', 'content' => 'мета описание']);
         return $this->render('show');
     }
 

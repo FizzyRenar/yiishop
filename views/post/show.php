@@ -1,3 +1,7 @@
+
+<? $this->beginBlock('block');?>
+<h1>Заголовок страницы</h1>
+<? $this->endBlock();?>
 <h1>Show Action</h1>
 
 <button class="btn btn-success" id="btn">Click me...</button>
