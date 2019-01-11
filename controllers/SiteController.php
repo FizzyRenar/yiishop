@@ -7,8 +7,9 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\web\Controller;
 
-class SiteController extends AppController
+class SiteController extends Controller
 {
     /**
      * {@inheritdoc}
