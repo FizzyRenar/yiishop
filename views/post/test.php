@@ -26,6 +26,7 @@ $form =ActiveForm::begin(
 );
 echo $form->field($model, 'name');
 echo $form->field($model, 'email');
+echo yii\jui\DatePicker::widget(['name' => 'attributeName']);
 echo $form->field($model, 'text')->textarea(array('rows' => 5));
 echo Html::submitButton('Send', array('class' => 'btn btn-success'));
 ActiveForm::end();

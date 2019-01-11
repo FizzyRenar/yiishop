@@ -10,7 +10,19 @@
 <?php //$this->registerJs("$('.container').append('<p>SHOW!!!</p>');", \yii\web\View::POS_LOAD) ?>
 
 <?php //$this->registerCss('.container{background: #ccc;}') ?>
-
+<ul>
+<?foreach($cats as $cat){
+    echo '<li>'.$cat->title.'</li>';
+    $products = $cat->products;
+    echo '<ul>';
+    foreach($products as $product){
+        echo '<li>'.$product->title.'</li>';
+    }
+    echo '</ul>';
+}?>
+</ul>
+<?//='<pre>'.print_r($cats,true).'</pre>'?>
+<?//=count($cats[0]->products)?>
 <?php
 
 $js = <<<JS
