@@ -1,3 +1,8 @@
+<? use app\components\MenuWidget;
+?>
+<ul class="catalog">
+
+</ul>
 <section id="slider">
     <div class="container">
         <div class="row">
@@ -69,7 +74,10 @@
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <h2>Category</h2>
-                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                    <div class="panel-group category-products" id="accordian">
+                    <?= MenuWidget::widget(['tpl' => 'select'])?>
+                    </div>
+                  <!--  <div class="panel-group category-products" id="accordian">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
@@ -174,7 +182,7 @@
                                 <h4 class="panel-title"><a href="#">Shoes</a></h4>
                             </div>
                         </div>
-                    </div><!--/category-products-->
+                    </div>-->
 
                     <div class="brands_products"><!--brands_products-->
                         <h2>Brands</h2>
