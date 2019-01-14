@@ -6,6 +6,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\ltAppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ltAppAsset::register($this);
@@ -19,17 +20,17 @@ ltAppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-    <link rel="shortcut icon" href="/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/web/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/web/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/web/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/web/images/ico/apple-touch-icon-57-precomposed.png">
 </head>
 
 <body>
 <?php $this->beginBody() ?>
-<header id="header"><!--header-->
-    <div class="header_top"><!--header_top-->
+<header id="header">
+    <div class="header_top">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
@@ -53,14 +54,20 @@ ltAppAsset::register($this);
                 </div>
             </div>
         </div>
-    </div><!--/header_top-->
+    </div>
 
-    <div class="header-middle"><!--header-middle-->
+    <div class="header-middle">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="index.html"><img src="/images/home/logo.png" alt="" /></a>
+                        <?if(Url::to() != Url::home()):?>
+                        <a href="<?=Url::home();?>">
+                            <?=Html::img('@web/images/home/logo.png',['alt'=>'logo','title'=>'E-SHOPPER'])?>
+                        </a>
+                        <?else:?>
+                            <?=Html::img('@web/images/home/logo.png',['alt'=>'logo','title'=>'E-SHOPPER'])?>
+                        <?endif;?>
                     </div>
                     <div class="btn-group pull-right">
                         <div class="btn-group">
@@ -99,9 +106,9 @@ ltAppAsset::register($this);
                 </div>
             </div>
         </div>
-    </div><!--/header-middle-->
+    </div>
 
-    <div class="header-bottom"><!--header-bottom-->
+    <div class="header-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-sm-9">
@@ -143,8 +150,7 @@ ltAppAsset::register($this);
                 </div>
             </div>
         </div>
-    </div><!--/header-bottom-->
-</header>
+    </div>
 
 <?=$content;?>
 
@@ -178,7 +184,7 @@ ltAppAsset::register($this);
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="/images/home/iframe2.png" alt="" />
+                                    <img src="/web/images/home/iframe2.png" alt="" />
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
@@ -193,7 +199,7 @@ ltAppAsset::register($this);
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="/images/home/iframe3.png" alt="" />
+                                    <img src="/web/images/home/iframe3.png" alt="" />
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
@@ -208,7 +214,7 @@ ltAppAsset::register($this);
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="/images/home/iframe4.png" alt="" />
+                                    <img src="/web/images/home/iframe4.png" alt="" />
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
@@ -221,7 +227,7 @@ ltAppAsset::register($this);
                 </div>
                 <div class="col-sm-3">
                     <div class="address">
-                        <img src="/images/home/map.png" alt="" />
+                        <img src="/web/images/home/map.png" alt="" />
                         <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
                     </div>
                 </div>

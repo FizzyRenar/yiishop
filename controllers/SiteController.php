@@ -7,9 +7,8 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use yii\web\Controller;
 
-class SiteController extends Controller
+class SiteController extends AppController
 {
     /**
      * {@inheritdoc}
@@ -45,6 +44,7 @@ class SiteController extends Controller
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
+                'layout' => '404'
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
@@ -52,6 +52,7 @@ class SiteController extends Controller
             ],
         ];
     }
+
 
     /**
      * Displays homepage.
