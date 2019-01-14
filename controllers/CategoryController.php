@@ -15,7 +15,7 @@ class CategoryController extends AppController
         return $this->render('index',['hits' => $hits]);
     }
 
-    public function actionView($id){
+    public function actionView(){
         $this->setPageCannonical();
         $id = Yii::$app->request->get('id');
         $query = Product::find()->where(['category_id' => $id]);
@@ -32,6 +32,27 @@ class CategoryController extends AppController
             'products' => $products,
             'category' => $category,
             'pages' => $pages,
+        ]);
+    }
+
+    public function actionSearch(){
+        $q = trim(Yii::$app->request->get('q'));
+        if(!$q){
+            $this->setMeta('E_shop | Поиск');
+            return $this->render('search');
+        }
+
+
+        $query = Product::find()->where(['like','name', $q]);
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 3,  'forcePageParam' => false, 'pageSizeParam' => false]);
+        $this->setMeta('E_shop | Поиск: '.$q);
+        $products = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+        return $this->render('search', [
+            'products' => $products,
+            'pages' => $pages,
+            'q' => $q
         ]);
     }
 }

@@ -1233,6 +1233,10 @@ h2.title {
   position: relative;
 }
 
+.del-item{
+  cursor: pointer;
+}
+
 .newarrival{
 	position:absolute;
 	top:0;
