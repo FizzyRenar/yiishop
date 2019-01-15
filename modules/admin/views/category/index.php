@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'parent_id',
                 'value' => function($data){
-                    return $data->category->name ? $da;
+                   // return $data->category->name ? $da;
                 },
                 'format' => 'html'
             ],
